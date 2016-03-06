@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="filler" stylesheets="@utilisateur.css" xmlns="http://javafx.com/javafx/8.0.45" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controlleur.utilisateur.UtilisateurController">
+<center>
+                        <GridPane hgap="15.0" layoutX="78.0" layoutY="62.0" prefHeight="307.0" prefWidth="508.0" styleClass="background" stylesheets="@utilisateur.css" vgap="10.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="62.0" BorderPane.alignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="21.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="nom utilisateur :" GridPane.rowIndex="1" />
+                              <Label text="prenom utilisateur :" GridPane.rowIndex="2" />
+                              <Label text="telephone utilisateur:" GridPane.rowIndex="3" />
+                              <TextField fx:id="nom" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="prenom" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="addresse utilisateur:" GridPane.rowIndex="4" />
+                              <Label text="login utilisateur:" GridPane.rowIndex="6" />
+                              <Label text="type utilisateur:" GridPane.rowIndex="7" />
+                              <Label text="password utilisateur:" GridPane.rowIndex="8" />
+                              <Label text="email utilisateur:" GridPane.rowIndex="9" />
+                              <Label text="profile  utilisateur:" GridPane.rowIndex="10" />
+                              <TextField fx:id="phone" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="addresse" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="login" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="type" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <PasswordField fx:id="password" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <TextField fx:id="email" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                 <children>
+                                  <Button fx:id="valider" mnemonicParsing="false" onAction="#ajouterUser" text="valider" />
+                                    <Button fx:id="anuler" mnemonicParsing="false" onAction="#resetOperation" stylesheets="@utilisateur.css" text="annuler">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="9.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets top="40.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <TextField fx:id="droit" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="10" /><Label text="identifiant utilisateur:" /><TextField styleClass="text-field" GridPane.columnIndex="1" />
+                           </children>
+<padding>
+<Insets top="10.0" />
+</padding>
+                        </GridPane>
+</center>
+</BorderPane>

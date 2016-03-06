@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #319645;" styleClass="split-pane-divider" stylesheets="@utilisateur.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controlleur.utilisateur.FicheAjoutUserController">
+ 
+
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="21.0" prefWidth="109.0" text="nom" textFill="#319645" GridPane.rowIndex="1" />
+            <Label text="prenom:" GridPane.rowIndex="2" />
+            <Label text="telephone:" GridPane.rowIndex="3" />
+            <Label text="addresse:" GridPane.rowIndex="4" />
+            <Label text="login :" GridPane.rowIndex="5" />
+            <Label text="type:" GridPane.rowIndex="6" />
+            <Label text="mot de passe:" GridPane.rowIndex="7" />
+            <Label text="email:" GridPane.rowIndex="8" />
+            <Label text="categorie:" GridPane.rowIndex="9" />
+            <TextField fx:id="nom" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="prenom" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="phone" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="addresse" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="login" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <PasswordField fx:id="password" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="email" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+               <children>
+                  <Button fx:id="modifier" mnemonicParsing="false" onAction="#handleOk" text="ok" />
+                  <Button fx:id="reset" mnemonicParsing="false" onAction="#handleCancel" text="cancel" />
+               </children>
+               <padding>
+                  <Insets bottom="3.0" left="5.0" right="7.0" top="2.0" />
+               </padding>
+            </HBox><Label text="id :" textFill="#000000f7" /><TextField fx:id="id_usr" styleClass="text-field" GridPane.columnIndex="1" /><TextField fx:id="login" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="5" /><ComboBox fx:id="type" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" /><ComboBox fx:id="droit" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+         </children>
+      </GridPane>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controlleur.dossier.ConsulterDossierFinController">
+<center>
+<ScrollPane prefViewportHeight="400.0" prefViewportWidth="600.0">
+<content>
+<VBox>
+<children><HBox alignment="CENTER_RIGHT" BorderPane.alignment="TOP_RIGHT">
+<children><Button mnemonicParsing="false" onAction="#modiffier" text="Modifier">
+<HBox.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+</HBox.margin></Button><Button mnemonicParsing="false" text="Supprimer">
+<HBox.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+</HBox.margin></Button>
+</children></HBox><HBox BorderPane.alignment="CENTER">
+<children><GridPane>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><Label text="Nom" /><Label text="Prenom" GridPane.rowIndex="1" /><Label text="Telephone" GridPane.rowIndex="2" /><Label text="Nunero CNI" GridPane.rowIndex="3" /><Label text="Date de naissance" GridPane.rowIndex="4" /><Label text="proession" GridPane.rowIndex="5" /><Label text="Sexe" GridPane.rowIndex="6" /><Label text="Garde malade" GridPane.rowIndex="7" /><Label text="Tel Garde" GridPane.rowIndex="8" /><Label fx:id="nom" GridPane.columnIndex="1" /><Label fx:id="prenom" GridPane.columnIndex="1" GridPane.rowIndex="1" /><Label fx:id="tel" GridPane.columnIndex="1" GridPane.rowIndex="2" /><Label fx:id="cni" GridPane.columnIndex="1" GridPane.rowIndex="3" /><Label fx:id="dateNaissance" GridPane.columnIndex="1" GridPane.rowIndex="4" /><Label fx:id="proession" GridPane.columnIndex="1" GridPane.rowIndex="5" /><Label fx:id="sexe" GridPane.columnIndex="1" GridPane.rowIndex="6" /><Label fx:id="garde" GridPane.columnIndex="1" GridPane.rowIndex="7" /><Label fx:id="telGarde" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+</children>
+</GridPane><VBox alignment="TOP_CENTER">
+<children><Label text="Antecedents du patient" /><TableView fx:id="antecedents" prefHeight="200.0" prefWidth="500.0" /><Label text="Allergies du patient">
+<VBox.margin>
+<Insets top="20.0" />
+</VBox.margin></Label><TableView fx:id="allergies" prefHeight="200.0" prefWidth="500.0" />
+</children></VBox>
+</children></HBox>
+</children>
+</VBox>
+</content>
+<padding>
+<Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+</padding>
+</ScrollPane>
+</center>
+<top>
+<HBox fx:id="panel">
+<padding>
+<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+</padding>
+</HBox>
+</top></BorderPane>

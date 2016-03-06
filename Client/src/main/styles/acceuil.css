@@ -1,0 +1,23 @@
+.outils{
+-fx-background-color: #669999;
+-fx-background-radius: 0 15 15 0;
+}
+.outils:Hover{
+-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0, 0 , 0 );
+}
+.outils .patient{
+-fx-background-color: #000000;
+-fx-background-radius: 0 15 15 0;
+}
+
+.button{
+-fx-background-color: #54524A;
+-fx-text-fill: rgb(255, 255, 255);
+-fx-border-color: rgba(49, 49, 49,0.7);
+-fx-border-radius: 5;
+-fx-padding: 3 6 6 6;
+}
+
+.button:hover{
+-fx-background-color: #1CC51C;
+}

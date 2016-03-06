@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="701.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8.0.45" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controlleur.Ressource.UpdateTimesTableController">
+<center>
+<BorderPane BorderPane.alignment="CENTER">
+<center>
+<ScrollPane fitToWidth="true" prefViewportHeight="657.0" prefViewportWidth="699.0">
+<content>
+<VBox spacing="5.0">
+<children>
+<TableView fx:id="timeTable" editable="true" layoutY="8.0" prefHeight="358.0" prefWidth="677.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<columns>
+<TableColumn fx:id="horaireColumn" prefWidth="69.0" text="horaireColumn" />
+<TableColumn fx:id="lundiColumn" maxWidth="106.0" minWidth="75.0" prefWidth="106.0" text="lundiColumn" />
+<TableColumn fx:id="mardiColumn" prefWidth="100.0" text="mardiColumn" />
+<TableColumn fx:id="mercrediColumn" prefWidth="100.0" text="mercrediColumn" />
+<TableColumn fx:id="jeudiColumn" prefWidth="100.0" text="jeudiColumn" />
+<TableColumn fx:id="vendrediColumn" prefWidth="100.0" text="vendrediColumn" />
+<TableColumn fx:id="samediColumn" prefWidth="100.0" text="samediColumn" />
+</columns>
+</TableView>
+<GridPane hgap="8.0" layoutY="20.0" maxHeight="-Infinity" prefHeight="293.0" prefWidth="677.0" vgap="9.0" AnchorPane.bottomAnchor="-115.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-16.0">
+<children>
+<Label text="horaire :" GridPane.rowIndex="1" /><Label text="Lundi :" GridPane.rowIndex="2" /><Label text="Mardi :" GridPane.rowIndex="3" /><Label text="Mercredi :" GridPane.rowIndex="4" /><Label text="Jeudi" GridPane.rowIndex="5" /><Label text="Vendredi" GridPane.rowIndex="6" /><Label text="Samedi" GridPane.rowIndex="7" /><Label fx:id="lundi" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" /><Label fx:id="mardi" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" /><Label fx:id="mercredi" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" /><Label fx:id="jeudi" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" /><Label fx:id="vendredi" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" /><Label fx:id="samedi" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" /><Label fx:id="heure" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+</children>
+<columnConstraints>
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+</columnConstraints>
+<rowConstraints>
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+</rowConstraints>
+</GridPane>
+</children>
+<padding>
+<Insets left="10.0" right="10.0" />
+</padding>
+<BorderPane.margin>
+<Insets top="10.0" />
+</BorderPane.margin>
+</VBox>
+</content>
+</ScrollPane>
+</center>
+</BorderPane>
+</center>
+<top>
+<HBox prefHeight="34.0" prefWidth="699.0" spacing="9.0" BorderPane.alignment="CENTER">
+<children>
+<HBox spacing="10.0" BorderPane.alignment="CENTER_RIGHT">
+<children>
+<Label text="id utilisateur:  " />
+<TextField fx:id="id_usr" /><Label text="nom :" /><TextField fx:id="nom" />
+</children>
+<padding>
+<Insets top="5.0" />
+</padding>
+<BorderPane.margin>
+<Insets />
+</BorderPane.margin>
+</HBox>
+<Button fx:id="modifier" mnemonicParsing="false" onAction="#handleEditPerson" text="modifier" />
+<Button fx:id="reset" mnemonicParsing="false" onAction="#consultUser" text="consulter" /><Button fx:id="ajouter" mnemonicParsing="false" onAction="#handleNewPerson" text="ajouter" />
+</children>
+</HBox>
+</top>
+</BorderPane>

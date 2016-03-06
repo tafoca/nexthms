@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controlleur.actionMedicale.RendezVousController">
+<top><Label fx:id="info" text="Prise de rendez - vous pour le patient " BorderPane.alignment="CENTER">
+<font>
+<Font name="System Bold" size="24.0" />
+</font></Label>
+</top>
+<center><VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+<children><GridPane alignment="TOP_CENTER" hgap="10.0" prefHeight="138.0" prefWidth="600.0" vgap="10.0">
+<children>
+<Label text="Nom Medecin traitant:" />
+<Label text="date Rendevous" GridPane.rowIndex="1" />
+<DatePicker fx:id="date" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+<HBox prefHeight="100.0" prefWidth="200.0" spacing="17.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+<children>
+<Button mnemonicParsing="false" onAction="#valider" text="enregistrer" />
+<Button mnemonicParsing="false" text="annuler" />
+</children>
+</HBox><Label text="Heure du rendez-vous" GridPane.rowIndex="2" /><ChoiceBox fx:id="nom" prefWidth="150.0" GridPane.columnIndex="1" /><ChoiceBox fx:id="heure" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+</children>
+<columnConstraints>
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="241.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="254.0" />
+</columnConstraints>
+<rowConstraints>
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+</rowConstraints>
+</GridPane><TableView maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0" prefWidth="600.0">
+<columns>
+<TableColumn prefWidth="155.0" text="prenom patient" />
+<TableColumn prefWidth="161.0" text="nom medecin" />
+<TableColumn prefWidth="172.0" text="Date Rendevous" />
+</columns>
+</TableView>
+</children></VBox>
+</center></BorderPane>

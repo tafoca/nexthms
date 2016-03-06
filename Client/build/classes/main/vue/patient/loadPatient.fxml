@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controlleur.patient.LoadPatientController">
+<center>
+<VBox alignment="CENTER">
+<children><Label fx:id="messageError" textFill="#d03232">
+<font>
+<Font name="System Bold" size="12.0" />
+</font></Label>
+<GridPane alignment="CENTER_RIGHT">
+<columnConstraints>
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+</columnConstraints>
+<rowConstraints>
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+</rowConstraints>
+<children><RadioButton mnemonicParsing="false" onAction="#activerId" text="Utiliser l'id" GridPane.rowIndex="1">
+<toggleGroup>
+<ToggleGroup fx:id="group" />
+</toggleGroup></RadioButton><TextField fx:id="id" BorderPane.alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" /><RadioButton mnemonicParsing="false" onAction="#activerCni" text="Utiliser le numero de cni du patient" toggleGroup="$group" GridPane.rowIndex="2" /><TextField fx:id="cni" GridPane.columnIndex="1" GridPane.rowIndex="2" /><TextField fx:id="nom" GridPane.columnIndex="1" /><RadioButton mnemonicParsing="false" onAction="#activerNom" selected="true" text="Utiliser le nom du patient" toggleGroup="$group" /><Button mnemonicParsing="false" onAction="#valider" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+</children>
+</GridPane>
+</children>
+</VBox>
+</center>
+<top><Label text="Quel est l'utilisateur que vous voullez ouvrir?" BorderPane.alignment="CENTER" />
+</top>
+<padding>
+<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+</padding></BorderPane>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controlleur.AcceiulController">
+   <top>
+      <VBox spacing="2.0" stylesheets="@../styles/acceuil.css">
+         <children>
+            <HBox minHeight="50.0" prefHeight="63.0" prefWidth="795.0" spacing="50.0" style="-fx-background-color: #339733;">
+               <children>
+                  <ImageView fitHeight="62.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/logo.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="1.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label text="nom de la structure" textFill="#064d27">
+                     <HBox.margin>
+                        <Insets bottom="120.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="connecte" text=" personne connecter">
+                     <HBox.margin>
+                        <Insets top="40.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#deconnexion" style="-fx-background-color: #333333;" text="deconnecter" textFill="#edededdc">
+                     <HBox.margin>
+                        <Insets top="35.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Hyperlink onAction="#gotoacceiul" text="Acceiul" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="1.0" left="3.0" right="2.0" top="0.1" />
+               </VBox.margin>
+            </HBox>
+            <MenuBar style="-fx-background-color: #87A6B8;">
+               <menus>
+                  <Menu fx:id="administration" mnemonicParsing="false" text="Administration">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#gotoModifyUser" text="Consulter utilisateur" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="dossierM" mnemonicParsing="false" text="Dossier Medical">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#createMedicaleDocument" text="enregistrement" /><MenuItem mnemonicParsing="false" onAction="#consultMedicaleDocument" text="Consultation" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="actionM" mnemonicParsing="false" text="Action Medicale">
+<items><MenuItem mnemonicParsing="false" onAction="#gotoLoadMalade" text="Ouvrir fiche malade" />
+</items></Menu>
+                  <Menu fx:id="planification" mnemonicParsing="false" text="Planification">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#gotoModifyTimesTableUser" text="modifier emploi de temps" />
+                     </items>
+                  </Menu><Menu fx:id="laboratoire" mnemonicParsing="false" text="Laboratoire">
+  <items><MenuItem mnemonicParsing="false" onAction="#allerAuLabo" text="Voir les examens" />
+  </items>
+</Menu>
+               </menus>
+            </MenuBar>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <BorderPane stylesheets="@utilisateur/utilisateur.css,@../styles/acceuil.css">
+<BorderPane.margin>
+<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+</BorderPane.margin></BorderPane>
+   </center>
+<left><Accordion styleClass="outils" stylesheets="@../styles/acceuil.css,@utilisateur/utilisateur.css" BorderPane.alignment="CENTER">
+  <panes>
+    <TitledPane animated="false" text="Administration">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="3.4000000000000004" layoutY="31.4" prefHeight="191.0" prefWidth="202.0" spacing="1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="-7.0" AnchorPane.topAnchor="21.0">
+                           <children>
+                              <ToggleButton mnemonicParsing="false" prefHeight="26.0" prefWidth="173.0" styleClass=".button" stylesheets="@utilisateur/utilisateur.css" text="liste de Rendevous" />
+                              <ToggleButton mnemonicParsing="false" prefHeight="26.0" prefWidth="173.0" text="modifier les Rendevous" />
+                              <ToggleButton mnemonicParsing="false" prefHeight="26.0" prefWidth="173.0" text="parametre patient" />
+                              <ToggleButton mnemonicParsing="false" prefHeight="26.0" prefWidth="173.0" text="annuler des rendevous" />
+                           </children>
+                           <padding>
+                              <Insets left="15.0" right="2.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                     </children></AnchorPane>
+      </content>
+    </TitledPane>
+    <TitledPane animated="false" onSwipeDown="#gotoLoadPatient" onSwipeLeft="#gotoLoadPatient" onSwipeRight="#gotoLoadPatient" onSwipeUp="#gotoLoadPatient" text="Patient">
+      <content>
+<VBox alignment="CENTER">
+<children><ToggleButton mnemonicParsing="false" onAction="#gotoLoadPatient" prefWidth="175.0" text="Ouvrir la fiche d'un patient">
+<toggleGroup>
+<ToggleGroup fx:id="patient" />
+</toggleGroup></ToggleButton><ToggleButton mnemonicParsing="false" prefWidth="175.0" text="Creer la fiche d'un patient" toggleGroup="$patient" /><ToggleButton mnemonicParsing="false" prefWidth="175.0" text="Voir les fiches en cours" toggleGroup="$patient" />
+<ToggleButton layoutX="20.0" layoutY="70.0" mnemonicParsing="false" prefWidth="175.0" text="Voir toute les fiches" toggleGroup="$patient" /><Separator opacity="0.0" orientation="VERTICAL" prefHeight="82.0" prefWidth="18.0" />
+<ToggleButton layoutX="20.0" layoutY="202.0" mnemonicParsing="false" prefWidth="175.0" text="Alertes" toggleGroup="$patient" />
+</children>
+</VBox>
+      </content>
+    </TitledPane>
+    <TitledPane animated="false" text="Voir toute les fiches">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </TitledPane>
+            <TitledPane animated="false" text="information medicale">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ToggleButton mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="antecedant " />
+                        <ToggleButton mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="examen effectuer" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="allergie" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="medicaments " />
+                        <ToggleButton mnemonicParsing="false" prefHeight="26.0" prefWidth="132.0" text="voir tous dossier medical " />
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+  </panes>
+</Accordion>
+</left>
+</BorderPane>

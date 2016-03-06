@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controlleur.actionMedicale.HomeMaladeController">
+<center>
+<ScrollPane fitToWidth="true" prefViewportHeight="418.0" prefViewportWidth="312.0" BorderPane.alignment="CENTER">
+<content>
+<HBox alignment="CENTER">
+<children><GridPane>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" />
+    <ColumnConstraints hgrow="SOMETIMES" />
+  </columnConstraints>
+  <rowConstraints>
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><Label text="Nom">
+<font>
+<Font name="System Bold" size="12.0" />
+</font>
+<GridPane.margin>
+<Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+</GridPane.margin></Label><Label text="Prenom" GridPane.rowIndex="1">
+<font>
+<Font name="System Bold" size="12.0" />
+</font>
+<GridPane.margin>
+<Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+</GridPane.margin></Label><Label text="Date de naissance" GridPane.rowIndex="2">
+<font>
+<Font name="System Bold" size="12.0" />
+</font>
+<GridPane.margin>
+<Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+</GridPane.margin></Label><Label text="numero de cni" GridPane.rowIndex="3">
+<font>
+<Font name="System Bold" size="12.0" />
+</font>
+<GridPane.margin>
+<Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+</GridPane.margin></Label><Label text="tel" GridPane.rowIndex="4">
+<font>
+<Font name="System Bold" size="12.0" />
+</font>
+<GridPane.margin>
+<Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+</GridPane.margin></Label><Label text="profession" GridPane.rowIndex="5">
+<font>
+<Font name="System Bold" size="12.0" />
+</font>
+<GridPane.margin>
+<Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+</GridPane.margin></Label><Label text="sexe" GridPane.rowIndex="6">
+<font>
+<Font name="System Bold" size="12.0" />
+</font>
+<GridPane.margin>
+<Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+</GridPane.margin></Label><Label text="garde" GridPane.rowIndex="7">
+<font>
+<Font name="System Bold" size="12.0" />
+</font>
+<GridPane.margin>
+<Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+</GridPane.margin></Label><Label text="telGarde" GridPane.rowIndex="8">
+<font>
+<Font name="System Bold" size="12.0" />
+</font>
+<GridPane.margin>
+<Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+</GridPane.margin></Label><Label fx:id="nom" GridPane.columnIndex="1" /><Label fx:id="prenom" GridPane.columnIndex="1" GridPane.rowIndex="1" /><Label fx:id="date" GridPane.columnIndex="1" GridPane.rowIndex="2" /><Label fx:id="cni" GridPane.columnIndex="1" GridPane.rowIndex="3" /><Label fx:id="tel" GridPane.columnIndex="1" GridPane.rowIndex="4" /><Label fx:id="profession" GridPane.columnIndex="1" GridPane.rowIndex="5" /><Label fx:id="sexe" GridPane.columnIndex="1" GridPane.rowIndex="6" /><Label fx:id="garde" GridPane.columnIndex="1" GridPane.rowIndex="7" /><Label fx:id="telGarde" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+</children>
+<HBox.margin>
+<Insets />
+</HBox.margin>
+</GridPane><VBox alignment="TOP_CENTER" spacing="40.0" BorderPane.alignment="CENTER">
+<children><Button mnemonicParsing="false" onAction="#voirDossier" text="Voir le dossier medicale du malade" /><Label text="Actions medicales">
+<font>
+<Font name="System Bold" size="18.0" />
+</font></Label><Button mnemonicParsing="false" onAction="#consultation" text="Consultation" /><Button mnemonicParsing="false" onAction="#ordonance" text="Ordonance" /><Button mnemonicParsing="false" onAction="#examens" text="Examens" /><Button disable="true" mnemonicParsing="false" onAction="#rendezVous" text="Rendez-vous" /><Button mnemonicParsing="false" onAction="#clore" text="Clore le traitement" />
+</children>
+<HBox.margin>
+<Insets top="20.0" />
+</HBox.margin></VBox>
+</children>
+<padding>
+<Insets top="30.0" />
+</padding>
+</HBox>
+</content>
+</ScrollPane>
+</center>
+<padding>
+<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+</padding></BorderPane>

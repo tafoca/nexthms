@@ -1,0 +1,496 @@
+-- Table: public."User"
+
+-- DROP TABLE public."User";
+
+CREATE TABLE public."User"
+(
+  login character varying(30),
+  password character varying(15) NOT NULL,
+  id integer NOT NULL,
+  nu double precision,
+  CONSTRAINT pk_id PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public."User"
+  OWNER TO nexthms;
+-- Table: public.allergie
+
+-- DROP TABLE public.allergie;
+
+CREATE TABLE public.allergie
+(
+  num_allergie integer NOT NULL,
+  type character varying(100),
+  description text,
+  id_patient integer,
+  nom character varying(123),
+  CONSTRAINT pk_key PRIMARY KEY (num_allergie),
+  CONSTRAINT "FK_ALLERGI" FOREIGN KEY (id_patient)
+      REFERENCES public.fiche_patient (mun_fiche_patient) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.allergie
+  OWNER TO nexthms;
+-- Table: public.antecedent
+
+-- DROP TABLE public.antecedent;
+
+CREATE TABLE public.antecedent
+(
+  num_antecedent integer NOT NULL,
+  categorie text NOT NULL,
+  description text NOT NULL,
+  date date,
+  pronostic character varying(255),
+  id_patient integer NOT NULL DEFAULT 34,
+  CONSTRAINT antecedent_pkey PRIMARY KEY (num_antecedent)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.antecedent
+  OWNER TO nexthms;
+-- Table: public.consultation
+
+-- DROP TABLE public.consultation;
+
+CREATE TABLE public.consultation
+(
+  num_consultation integer NOT NULL DEFAULT nextval('consultation_id_seq'::regclass),
+  motif character varying(255) NOT NULL,
+  date date NOT NULL,
+  id_medecin integer NOT NULL,
+  poids integer NOT NULL,
+  temperature integer NOT NULL,
+  tention integer NOT NULL,
+  diagnostic character varying(255) NOT NULL,
+  nouveau_traitement boolean NOT NULL DEFAULT false,
+  id_patient integer,
+  CONSTRAINT consultation_pkey PRIMARY KEY (num_consultation)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.consultation
+  OWNER TO nexthms;
+-- Table: public.dossier_medical
+
+-- DROP TABLE public.dossier_medical;
+
+CREATE TABLE public.dossier_medical
+(
+  id_dossier integer NOT NULL
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.dossier_medical
+  OWNER TO nexthms;
+-- Table: public.emploi_de_temps
+
+-- DROP TABLE public.emploi_de_temps;
+
+CREATE TABLE public.emploi_de_temps
+(
+  id_emploi integer NOT NULL DEFAULT nextval('emploi_de_temps_id_seq'::regclass),
+  horaire time with time zone NOT NULL,
+  lundi character varying(35),
+  mardi character varying(35),
+  mercredi character varying(35),
+  jeudi character varying(35),
+  vendredi character varying(35),
+  samedi character varying(35),
+  iduser integer,
+  CONSTRAINT emploi_de_temps_pkey PRIMARY KEY (id_emploi),
+  CONSTRAINT emploi_de_temps_iduser_fkey FOREIGN KEY (iduser)
+      REFERENCES public.utilisateur (num_utilisateur) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.emploi_de_temps
+  OWNER TO nexthms;
+-- Table: public.examen
+
+-- DROP TABLE public.examen;
+
+CREATE TABLE public.examen
+(
+  numero integer NOT NULL,
+  num_patient integer NOT NULL,
+  nom character varying(255) NOT NULL,
+  resulta character varying(255),
+  id_medecin integer NOT NULL,
+  type character varying(255) NOT NULL,
+  nouveau_traitement boolean NOT NULL DEFAULT false
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.examen
+  OWNER TO nexthms;
+-- Table: public.fiche_malade
+
+-- DROP TABLE public.fiche_malade;
+
+CREATE TABLE public.fiche_malade
+(
+  date_arrive date NOT NULL,
+  id_patient integer NOT NULL,
+  est_clos boolean,
+  date_sortie date,
+  "ID" integer NOT NULL DEFAULT nextval('"fiche_malade_ID_seq"'::regclass),
+  CONSTRAINT "PRIMA" PRIMARY KEY ("ID"),
+  CONSTRAINT "PK_fICHEmALADE" FOREIGN KEY (id_patient)
+      REFERENCES public.fiche_patient (mun_fiche_patient) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.fiche_malade
+  OWNER TO nexthms;
+
+-- Index: public."fki_PK_fICHEmALADE"
+
+-- DROP INDEX public."fki_PK_fICHEmALADE";
+
+CREATE INDEX "fki_PK_fICHEmALADE"
+  ON public.fiche_malade
+  USING btree
+  (id_patient);
+
+-- Table: public.fiche_patient
+
+-- DROP TABLE public.fiche_patient;
+
+CREATE TABLE public.fiche_patient
+(
+  mun_fiche_patient integer NOT NULL,
+  nom text NOT NULL,
+  prenom text NOT NULL,
+  cni integer NOT NULL,
+  date_naissance date NOT NULL,
+  tel integer NOT NULL,
+  profession text NOT NULL,
+  sexe "char" NOT NULL,
+  est_en_cours_de_traitement boolean NOT NULL DEFAULT false,
+  garde_malade character varying(255) NOT NULL,
+  tel_garde integer NOT NULL,
+  CONSTRAINT fiche_patient_pkey PRIMARY KEY (mun_fiche_patient)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.fiche_patient
+  OWNER TO nexthms;
+-- Table: public.medicament
+
+-- DROP TABLE public.medicament;
+
+CREATE TABLE public.medicament
+(
+  id integer NOT NULL,
+  code text NOT NULL,
+  nom text NOT NULL,
+  description text NOT NULL,
+  CONSTRAINT medicament_pkey PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.medicament
+  OWNER TO nexthms;
+-- Table: public.ordonance
+
+-- DROP TABLE public.ordonance;
+
+CREATE TABLE public.ordonance
+(
+  num_ordonance integer NOT NULL,
+  date date NOT NULL,
+  id_medecin integer NOT NULL,
+  nom_medicament character varying(255) NOT NULL,
+  famille_medicament character varying(255) NOT NULL,
+  forme_medicament character varying(255) NOT NULL,
+  posologie character varying(255) NOT NULL,
+  observation character varying(255) NOT NULL,
+  nouveau_traitement boolean NOT NULL DEFAULT false,
+  id_patient integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.ordonance
+  OWNER TO nexthms;
+-- Table: public.patient
+
+-- DROP TABLE public.patient;
+
+CREATE TABLE public.patient
+(
+  id_patient integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.patient
+  OWNER TO nexthms;
+-- Table: public.posologie
+
+-- DROP TABLE public.posologie;
+
+CREATE TABLE public.posologie
+(
+  id_posologie integer NOT NULL DEFAULT nextval('posologie_id_seq'::regclass),
+  code character varying(255) NOT NULL,
+  nombre_prise integer NOT NULL,
+  dosage character varying(255) NOT NULL,
+  description character varying(255) NOT NULL
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.posologie
+  OWNER TO nexthms;
+-- Table: public.rendez_vous
+
+-- DROP TABLE public.rendez_vous;
+
+CREATE TABLE public.rendez_vous
+(
+  num_rdv integer NOT NULL DEFAULT nextval('rendez_vous_id_seq'::regclass),
+  heure time with time zone NOT NULL,
+  date date NOT NULL,
+  id_medecin integer NOT NULL,
+  id_patient integer NOT NULL
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.rendez_vous
+  OWNER TO nexthms;
+-- Table: public.utilisateur
+
+-- DROP TABLE public.utilisateur;
+
+CREATE TABLE public.utilisateur
+(
+  num_utilisateur integer NOT NULL,
+  nom text NOT NULL,
+  prenom text,
+  login text,
+  mot_de_passe text,
+  statut text,
+  type character(1),
+  phone integer,
+  email text,
+  profil text,
+  adresse character varying(100),
+  CONSTRAINT utilisateur_pkey PRIMARY KEY (num_utilisateur),
+  CONSTRAINT utilisateur_login_key UNIQUE (login)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.utilisateur
+  OWNER TO nexthms;
+
+-- Sequence: public.antecedent_num_antecedent_seq
+
+-- DROP SEQUENCE public.antecedent_num_antecedent_seq;
+
+CREATE SEQUENCE public.antecedent_num_antecedent_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 20
+  CACHE 1;
+ALTER TABLE public.antecedent_num_antecedent_seq
+  OWNER TO nexthms;
+-- Sequence: public.consultation_id_seq
+
+-- DROP SEQUENCE public.consultation_id_seq;
+
+CREATE SEQUENCE public.consultation_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 2
+  CACHE 1;
+ALTER TABLE public.consultation_id_seq
+  OWNER TO nexthms;
+-- Sequence: public.consultation_num_consultation_seq
+
+-- DROP SEQUENCE public.consultation_num_consultation_seq;
+
+CREATE SEQUENCE public.consultation_num_consultation_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 5000
+  START 9
+  CACHE 1;
+ALTER TABLE public.consultation_num_consultation_seq
+  OWNER TO nexthms;
+-- Sequence: public.dossier_medical_id_seq
+
+-- DROP SEQUENCE public.dossier_medical_id_seq;
+
+CREATE SEQUENCE public.dossier_medical_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.dossier_medical_id_seq
+  OWNER TO nexthms;
+-- Sequence: public.emploi_de_temps_id_seq
+
+-- DROP SEQUENCE public.emploi_de_temps_id_seq;
+
+CREATE SEQUENCE public.emploi_de_temps_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 8
+  CACHE 1;
+ALTER TABLE public.emploi_de_temps_id_seq
+  OWNER TO nexthms;
+-- Sequence: public.examen_id_seq
+
+-- DROP SEQUENCE public.examen_id_seq;
+
+CREATE SEQUENCE public.examen_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.examen_id_seq
+  OWNER TO nexthms;
+-- Sequence: public.examen_numero_seq
+
+-- DROP SEQUENCE public.examen_numero_seq;
+
+CREATE SEQUENCE public.examen_numero_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 10000
+  START 8
+  CACHE 1;
+ALTER TABLE public.examen_numero_seq
+  OWNER TO nexthms;
+-- Sequence: public."ficheMalade_id_seq"
+
+-- DROP SEQUENCE public."ficheMalade_id_seq";
+
+CREATE SEQUENCE public."ficheMalade_id_seq"
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public."ficheMalade_id_seq"
+  OWNER TO nexthms;
+-- Sequence: public."fiche_malade_ID_seq"
+
+-- DROP SEQUENCE public."fiche_malade_ID_seq";
+
+CREATE SEQUENCE public."fiche_malade_ID_seq"
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 2
+  CACHE 1;
+ALTER TABLE public."fiche_malade_ID_seq"
+  OWNER TO nexthms;
+-- Sequence: public.fiche_patient_id_seq
+
+-- DROP SEQUENCE public.fiche_patient_id_seq;
+
+CREATE SEQUENCE public.fiche_patient_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 21
+  CACHE 1;
+ALTER TABLE public.fiche_patient_id_seq
+  OWNER TO nexthms;
+-- Sequence: public.medicament_id_seq
+
+-- DROP SEQUENCE public.medicament_id_seq;
+
+CREATE SEQUENCE public.medicament_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.medicament_id_seq
+  OWNER TO nexthms;
+-- Sequence: public.ordonance_id_seq
+
+-- DROP SEQUENCE public.ordonance_id_seq;
+
+CREATE SEQUENCE public.ordonance_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.ordonance_id_seq
+  OWNER TO nexthms;
+-- Sequence: public.ordonance_num_ordonance_seq
+
+-- DROP SEQUENCE public.ordonance_num_ordonance_seq;
+
+CREATE SEQUENCE public.ordonance_num_ordonance_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 1000
+  START 7
+  CACHE 1;
+ALTER TABLE public.ordonance_num_ordonance_seq
+  OWNER TO nexthms;
+-- Sequence: public.posologie_id_seq
+
+-- DROP SEQUENCE public.posologie_id_seq;
+
+CREATE SEQUENCE public.posologie_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.posologie_id_seq
+  OWNER TO nexthms;
+-- Sequence: public.rendez_vous_id_seq
+
+-- DROP SEQUENCE public.rendez_vous_id_seq;
+
+CREATE SEQUENCE public.rendez_vous_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.rendez_vous_id_seq
+  OWNER TO nexthms;
+-- Sequence: public.utilisateur_id_seq
+
+-- DROP SEQUENCE public.utilisateur_id_seq;
+
+CREATE SEQUENCE public.utilisateur_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 27
+  CACHE 1;
+ALTER TABLE public.utilisateur_id_seq
+  OWNER TO nexthms;

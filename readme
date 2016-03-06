@@ -1,0 +1,23 @@
+pour executer l' application il faut :
+ - installer la jdk 8 ou plus.
+- importer la base de donnees qui est BaseSih situe dans le dossier principale.
+- ensuite ouvrir le serveur avec netbeans version 8.0 ou plus.
+- lancer le serveur .
+- lancer le client dans executable appler Client.jar
+ Fonctionnement:
+   connection en tant que medecin
+      Login: test.
+      password:test.
+  
+        connection en tant que secretaire
+      Login: carine.
+      password:carine.
+  
+ connection en tant que Laborentain
+      Login: jean.
+      password:paul.
+  
+ connection en tant que Gestionnaire de Ressource
+      Login: andre.
+      password:andre.
+  
